@@ -31,60 +31,58 @@ const Login: FC<LoginProps> = () => {
 
                             <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
                                 <span
-                                    className="text-5xl md:text-6xl font-extrabold tracking-tight leading-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400">ŠDV Freezer App</span>
+                                    className="text-5xl md:text-6xl font-extrabold tracking-tight leading-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-teal-400">ŠDV Freezer App</span>
                             </div>
 
                             <div className="max-w-md mx-auto">
-                                <form>
-                                    <div className="flex flex-wrap -mx-3 mb-4">
-                                        <div className="w-full px-3">
+                                <div className="flex flex-wrap -mx-3 mb-4">
+                                    <div className="w-full px-3">
+                                        <label
+                                            className="block text-gray-800 text-lg font-medium mb-2"
+                                            htmlFor="email">
+                                            Email
+                                        </label>
+                                        <input id="email"
+                                               type="text"
+                                               className="w-full text-gray-800 p-3"
+                                               placeholder="Enter your email"
+                                               required
+                                               value={email}
+                                               onChange={(e) => setEmail(e.target.value)}
+                                        />
+                                    </div>
+                                </div>
+                                <div className="flex flex-wrap -mx-3 mb-4">
+                                    <div className="w-full px-3">
+                                        <div className="flex justify-between">
                                             <label
                                                 className="block text-gray-800 text-lg font-medium mb-2"
-                                                htmlFor="email">
-                                                Email
+                                                htmlFor="password">
+                                                Password
                                             </label>
-                                            <input id="email"
-                                                   type="text"
-                                                   className="w-full text-gray-800 p-3"
-                                                   placeholder="Enter your email"
-                                                   required
-                                                   value={email}
-                                                   onChange={(e) => setEmail(e.target.value)}
-                                            />
+                                            <Link to="/reset"
+                                                  className="text-sm font-medium text-blue-600 hover:underline">Having
+                                                trouble loging in?</Link>
                                         </div>
+                                        <input id="password"
+                                               type="password"
+                                               className="w-full text-gray-800 p-3"
+                                               placeholder="Enter your password"
+                                               required
+                                               value={password}
+                                               onChange={(e) => setPassword(e.target.value)}
+                                        />
                                     </div>
-                                    <div className="flex flex-wrap -mx-3 mb-4">
-                                        <div className="w-full px-3">
-                                            <div className="flex justify-between">
-                                                <label
-                                                    className="block text-gray-800 text-lg font-medium mb-2"
-                                                    htmlFor="password">
-                                                    Password
-                                                </label>
-                                                <Link to="/reset-password"
-                                                      className="text-sm font-medium text-blue-600 hover:underline">Having
-                                                    trouble signing in?</Link>
-                                            </div>
-                                            <input id="password"
-                                                   type="password"
-                                                   className="w-full text-gray-800 p-3"
-                                                   placeholder="Enter your password"
-                                                   required
-                                                   value={password}
-                                                   onChange={(e) => setPassword(e.target.value)}
-                                            />
-                                        </div>
+                                </div>
+                                <div className="flex flex-wrap -mx-3 mt-6">
+                                    <div className="w-full px-3">
+                                        <button
+                                            className="text-white text-lg bg-blue-600 hover:bg-blue-700 w-full p-2"
+                                            onClick={() => logInWithEmailAndPassword(email, password)}>
+                                            Log in
+                                        </button>
                                     </div>
-                                    <div className="flex flex-wrap -mx-3 mt-6">
-                                        <div className="w-full px-3">
-                                            <button
-                                                className="text-white text-lg bg-blue-600 hover:bg-blue-700 w-full p-2"
-                                                onClick={() => logInWithEmailAndPassword(email, password)}>
-                                                Sign in
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
+                                </div>
                                 <div className="flex items-center mt-6">
                                     <div className="border-t border-gray-300 flex-grow mr-3" aria-hidden="true"></div>
                                     <div className="text-gray-600 italic">Or</div>
@@ -95,7 +93,7 @@ const Login: FC<LoginProps> = () => {
                                         <button
                                             className="text-white text-lg bg-red-600 hover:bg-red-700 w-full p-2"
                                             onClick={signInWithGoogle}>
-                                            Sign in with Google
+                                            Log in with Google
                                         </button>
                                     </div>
                                 </div>
